@@ -1,6 +1,7 @@
 <?php
 
-class Model {
+class Model
+{
     private $host = "localhost";
     private $password = "admin";
     private $user = "kau";
@@ -13,5 +14,9 @@ class Model {
     public function __construct()
     {
         $this->conn = new mysqli($this->host, $this->user, $this->password, $this->dbname);
+    }
+
+    protected function getdata()
+    {
     }
 }

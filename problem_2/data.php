@@ -4,43 +4,59 @@ require_once "classes/Query.php";
 
 $q = new Query();
 
-$marks = array();
-if(isset($_GET["q"])) {
-    switch($_GET["q"]) {
+$return_value = array();
+if (isset($_GET["q"])) {
+    switch ($_GET["q"]) {
         case 1:
-            $marks = $q->getAll();
-        break;
+            $return_value = $q->getAll();
+            break;
 
         case 2:
-            $marks = $q->getData(Query::GetNameWithSalaryGt50());
-        break;
+            $return_value = $q->GetNameWithSalaryGt50();
+            break;
+
+        case 3:
+            $return_value = $q->GetNameWithPercentileGt70();
+            break;
+
+        case 4:
+            $return_value = $q->GetCodeNameWithPercentileLs70();
+            break;
+
+        case 5:
+            $return_value = $q->GetNameWithDomainNotJava();
+            break;
+
+        default:
+            echo "Hooooaaaahhhhhhh";
     }
 }
 
-print_r($marks);
-
+$data = $return_value[0];
+$columns = $return_value[1];
 ?>
 
-<?php if (!empty($marks)) : ?>
+
+
+<?php if (!empty($data)) : ?>
     <div class="mt-3">
         <table class="table">
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Firstname</th>
-                    <th scope="col">Lastname</th>
-                    <th scope="col">Domain</th>
-                    <th scope="col">Salary</th>
+                    <?php foreach ($columns as $value) : ?>
+                        <th scope="col"><?php echo $value ?></th>
+                    <?php endforeach; ?>
                 </tr>
+
             </thead>
             <tbody>
-                <?php foreach ($marks as $key => $value) : ?>
+                <?php foreach ($data as $key_i => $row) : ?>
                     <tr>
-                        <th scope="row"><?php echo ($key + 1); ?></th>
-                        <td><?php echo $value->Firstname; ?></td>
-                        <td><?php echo $value->Lastname; ?></td>
-                        <td><?php echo $value->Domain; ?></td>
-                        <td><?php echo $value->Salary; ?></td>
+                        <th scope="row"><?php echo ($key_i + 1); ?></th>
+                        <?php foreach ($row as $value) : ?>
+                            <th scope="col"><?php echo $value ?></th>
+                        <?php endforeach; ?>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

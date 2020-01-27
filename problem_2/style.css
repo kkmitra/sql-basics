@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
+.display-flex {
+  display: flex;
+}
+
+.direction-column {
+  flex-direction: column;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+nav {
+  padding: 0.5em 1em;
+  font-size: 1.5rem;
+  background-color: rgb(77, 77, 77);
+  color: rgb(209, 209, 209);
+  display: flex;
+  justify-content: space-around;
+}
+
+nav a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  margin-top: 1em;
+}
+
+.container form {
+  width: 30%;
+  padding: 3em 2em;
+  border: 2px solid rgb(77, 77, 77);
+  border-radius: 10px;
+
+  box-sizing: border-box;
+}
+
+.container form input {
+  display: block;
+  width: 100%;
+  margin-bottom: 1em;
+  padding: 1em 0.5em;
+  border: 2px solid rgb(77, 77, 77);
+  border-radius: 10px;
+}
+
+.container input[type="submit"]:hover {
+  background-color: rgb(77, 77, 77);
+  color: rgb(209, 209, 209);
+}
+
+.error-msg {
+  width: 30%;
+  margin-bottom: 1em;
+  padding: 1em 0.5em;
+  background-color: #fd5c5c;
+}
+
+.data-section {
+  width: 80%;
+  margin: 1em auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th {
+  background-color: rgb(77, 77, 77);
+  color: rgb(209, 209, 209);
+}
+
+th,
+td {
+  text-align: center;
+  padding: 0.5em;
+  border: 1px solid rgb(43, 43, 43);
+}
+
+
+.query-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.query-list li {
+    flex: 1 0 30%;
+    align-self: stretch;
+    border: 1px solid black;
+}
+
+.query-links {
+    display: block;
+    padding: 1em 2em;
+    margin-bottom: 0.5em;
+}

@@ -52,6 +52,16 @@ class Employee
             return false;
         }
 
+        if(!preg_match("/\d+/", $this->salary)) {
+            $this->error_msg = "Salary should be a number...";
+            return false;
+        }
+
+        if(!preg_match("/\d+/", $this->percentile)) {
+            $this->error_msg = "Percentile should be a number...";
+            return false;
+        }
+
         return true;
     }
 

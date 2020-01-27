@@ -12,7 +12,6 @@ class Employee
     private $percentile;
     private $domain;
     private $code_name;
-    private $id;
     private $code;
 
     private $salary_table;
@@ -29,7 +28,7 @@ class Employee
         $this->percentile = trim($form_array["percentile"]);
         $this->domain = trim($form_array["domain"]);
         $this->code_name = trim($form_array["code_name"]);
-        $this->id = trim($form_array["id"]);
+
         $this->code = "su_" . strtolower($this->first_name);
 
         $this->salary_table = new EmployeeSalaryTable();
@@ -42,13 +41,12 @@ class Employee
 
         if (
             $this->first_name == "" ||
-            $this->first_name = "" ||
-            $this->last_name = "" ||
-            $this->salary = "" ||
-            $this->percentile = "" ||
-            $this->domain = "" ||
-            $this->code_name = "" ||
-            $this->id = ""
+            $this->first_name == "" ||
+            $this->last_name == "" ||
+            $this->salary == "" ||
+            $this->percentile == "" ||
+            $this->domain == "" ||
+            $this->code_name == ""
         ) {
             $this->error_msg = "All fields must be filled";
             return false;
@@ -59,43 +57,45 @@ class Employee
 
     public function insert()
     {
-        echo $this->first_name . "<br>";
+        // echo $this->first_name . "<br>";
         echo $this->first_name . "<br>";
         echo $this->last_name . "<br>";
         echo $this->salary . "<br>";
         echo $this->percentile . "<br>";
         echo $this->domain . "<br>";
         echo $this->code_name . "<br>";
-        echo $this->id . "<br>";
-        echo "1";
+        echo $this->code . "<br>";
+        // echo $this->id . "<br>";
+        // echo "1";
+
         // if (!$this->validate()) {
         //     return false;
         // }
 
 
-        echo "2";
+        // echo "2";
 
         if (!$this->code_table->insert($this->code, $this->code_name, $this->domain)) {
             $this->error_msg = $this->code_table->error_msg;
             return false;
         }
 
-        echo "3";
+        // echo "3";
 
-        if (!$this->salary_table->insert($this->id, $this->salary, $this->code)) {
+        if (!$this->salary_table->insert($this->salary, $this->code)) {
             $this->error_msg = $this->salary_table->error_msg;
             return false;
         }
 
-        echo "4";
+        // // echo "4";
 
-        if (!$this->details_table->insert($this->id, $this->first_name, $this->last_name, $this->percentile)) {
+        if (!$this->details_table->insert($this->first_name, $this->last_name, $this->percentile)) {
             $this->error_msg = $this->details_table->error_msg;
             return false;
         }
 
 
-        echo "5";
+        // echo "5";
         return true;
     }
 }

@@ -1,11 +1,12 @@
 <?php
 
-require_once "classes/Employee.php";
-
 if (isset($_POST["submit"])) {
+    require_once "classes/Employee.php";
+
     $emp = new Employee($_POST);
     if ($emp->insert()) {
-        header("Location: data.php");
+        header("Location: data.php?q=1");
+        exit();
     } else {
         $emp->error_msg;
     }
@@ -43,11 +44,11 @@ if (isset($_POST["submit"])) {
         <div>
             <input type="text" id="code_name" name="code_name" placeholder="code_name">
         </div>
-        <div>
-            <input type="text" id="id" name="id" placeholder="id">
-        </div>
         <input type="submit" value="Submit" name="submit">
     </form>
 </body>
 
 </html>
+
+
+<!-- TODO: Update UI... -->

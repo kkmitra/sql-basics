@@ -17,18 +17,21 @@ class EmployeeSalaryTable extends Model
         return $result;
     }
 
-    public function insert($id, $salary, $code)
+    public function insert($salary, $code)
     {
 
-        if ($stmt = $this->conn->prepare(
-            "INSERT INTO employee_salary_table VALUES(?, ?, ?)"
-        )) {
-            $stmt->bind_param("sss", $id, $salary, $code);
-            $stmt->execute();
-            $stmt->close();
-            return true;
-        }
-        $this->error_msg = $this->conn->error;
-        return false;
+        // if ($stmt = $this->conn->prepare(
+        //     "INSERT INTO employee_salary_table VALUES(?, ?, ?)"
+        // )) {
+        //     $stmt->bind_param("sss", $id, $salary, $code);
+        //     $stmt->execute();
+        //     $stmt->close();
+        //     return true;
+        // }
+        // $this->error_msg = $this->conn->error;
+        // return false;
+        return $this->insertData(
+            "INSERT INTO employee_salary_table(emp_salary, emp_code) VALUES(?, ?)", "is", array($salary, $code)
+        );
     }
 }

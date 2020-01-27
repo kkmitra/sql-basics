@@ -48,7 +48,7 @@ class Employee
             $this->domain == "" ||
             $this->code_name == ""
         ) {
-            $this->error_msg = "All fields must be filled";
+            $this->error_msg = "No fields should be empty...";
             return false;
         }
 
@@ -58,19 +58,19 @@ class Employee
     public function insert()
     {
         // echo $this->first_name . "<br>";
-        echo $this->first_name . "<br>";
-        echo $this->last_name . "<br>";
-        echo $this->salary . "<br>";
-        echo $this->percentile . "<br>";
-        echo $this->domain . "<br>";
-        echo $this->code_name . "<br>";
-        echo $this->code . "<br>";
+        // echo $this->first_name . "<br>";
+        // echo $this->last_name . "<br>";
+        // echo $this->salary . "<br>";
+        // echo $this->percentile . "<br>";
+        // echo $this->domain . "<br>";
+        // echo $this->code_name . "<br>";
+        // echo $this->code . "<br>";
         // echo $this->id . "<br>";
         // echo "1";
 
-        // if (!$this->validate()) {
-        //     return false;
-        // }
+        if (!$this->validate()) {
+            return false;
+        }
 
 
         // echo "2";

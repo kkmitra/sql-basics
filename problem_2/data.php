@@ -64,9 +64,9 @@ $columns = $return_value[1];
             <li><a href="./data.php?q=3" class="query-links">Query 3 - Get last name with graduation percentile less 70%...</a></li>
             <li><a href="./data.php?q=4" class="query-links">Query 4 - Get code name with graduation percentile less 70%...</a></li>
             <li><a href="./data.php?q=5" class="query-links">Query 5 - Get full name that are not of domain Java</a></li>
-            <li><a href="./data.php?q=6" class="query-links">Query 7 - Get employee domain with sum of its salary</a></li>
-            <li><a href="./data.php?q=7" class="query-links">Query 8 - Get employee domain with sum of its salary less than 30k</a></li>
-            <li><a href="./data.php?q=8" class="query-links">Query 9 - Get employee id which has not been assigned employee code</a></li>
+            <li><a href="./data.php?q=6" class="query-links">Query 6 - Get employee domain with sum of its salary</a></li>
+            <li><a href="./data.php?q=7" class="query-links">Query 7 - Get employee domain with sum of its salary less than 30k</a></li>
+            <li><a href="./data.php?q=8" class="query-links">Query 8 - Get employee id which has not been assigned employee code</a></li>
         </ul>
 
 
